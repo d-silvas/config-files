@@ -1,2 +1,18 @@
 {
+    "editor.rulers": [120],
+
+    "files.associations": {
+        "*.html": "php",
+        "*.inc": "php"
+    },
+
+    "terminal.integrated.shell.windows":
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+
+    "phpcs.ignorePatterns": [
+        "*/*.html",
+    ],
+    "window.zoomLevel": 0,
+    "editor.lineHeight": 22,
+    "extensions.ignoreRecommendations": false
 }
