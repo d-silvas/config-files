@@ -2,6 +2,9 @@ set nocompatible "We want the latest Vim settings/options
 
 so ~/vimfiles/plugins.vim
 
+" This is for the bar?
+set laststatus=2
+
 syntax enable
 
 set backspace=indent,eol,start  "Make backspace behave like every other editor
@@ -11,17 +14,21 @@ set linespace=7  "gVim-specific line height (not in terminal)
 
 
 "------------------ Windows UI ----------------
-set guioptions -=m "Remove menu bar
-set guioptions -=T "Remove toolbar
-set guioptions -=l "The next 4 remove the scrolling bars
-set guioptions -=L
-set guioptions -=r
-set guioptions -=R
+set guioptions-=m "Remove menu bar
+set guioptions-=T "Remove toolbar
+set guioptions-=l "The next 4 remove the scrolling bars
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
 
 
 "------------------ Visuals -------------------
-colorscheme atom-dark 
-set guifont=Ubuntu_Mono:h13
+colorscheme atom-dark
+set guifont=Consolas:h12
+set t_Co=256
+set t_ut=
+set guioptions-=e "No GUI tabs, text-based ones
+set showtabline=2 "Always show the tablines
 
 
 "------------------ Searching -----------------
@@ -36,6 +43,17 @@ nmap <Leader>ev :tabedit $MYVIMRC<cr>
 nmap <Leader><space> :nohlsearch<cr>
 "Make NERDTree easier to toggle
 nmap <A-1> :NERDTreeToggle<cr>
+
+"------------------ NERDTree ------------------
+let NERDTreeHijackNetrw=0
+"Go to the currently opened file in NERDTree
+map <leader>f :NERDTreeFind<cr> 
+
+"------------------ Ctrl-P --------------------
+"CtrlP tag search
+nmap <c-R> :CtrlPBufTag<cr> 
+"CtrlP search among recently used files
+nmap <A-e> :CtrlPMRUFiles<cr>
 
 "------------------ Auto-Commands -------------
 "Automatically source the Vimrc file on save
