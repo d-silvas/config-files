@@ -1,0 +1,21 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./.docker/apache-php-composer.Dockerfile
+    image: laravel
+    ports:
+      - 8080:80
+    volumes:
+      - ./backend:/app
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./.docker/node-angularcli.Dockerfile
+    image: angular
+    ports:
+      - 4200:4200
+      - 9876:9876
+    volumes:
+      - ./frontend:/app
