@@ -14,9 +14,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && php -r "unlink('composer-setup.php');" \
   && mv composer.phar /usr/local/bin/composer
 
-WORKDIR /app
+WORKDIR /backend
 
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
-RUN chown -R www-data:www-data /app \
+RUN chown -R www-data:www-data /backend \
   && a2enmod rewrite

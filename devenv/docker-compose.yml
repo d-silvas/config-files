@@ -4,18 +4,21 @@ services:
     build:
       context: ./backend
       dockerfile: ./.docker/apache-php-composer.Dockerfile
-    image: laravel
+    image: devenv/laravel
+    container_name: devenv_backend
     ports:
-      - 8080:80
+      - 8087:8007
     volumes:
-      - ./backend:/app
+      - ./backend:/backend
   frontend:
     build:
       context: ./frontend
       dockerfile: ./.docker/node-angularcli.Dockerfile
-    image: angular
+    image: devenv/angular
+    container_name: devenv_frontend
+    command: tail -f /dev/null
     ports:
-      - 4200:4200
-      - 9876:9876
+      - 4202:4202
+      - 9877:9877
     volumes:
-      - ./frontend:/app
+      - ./frontend:/frontend
