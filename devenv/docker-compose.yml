@@ -10,6 +10,11 @@ services:
       - 8087:8007
     volumes:
       - ./backend:/backend
+    environment:
+      DB_HOST: '127.0.0.1'
+      DB_DATABASE: app_db
+      DB_USERNAME: root
+      DB_PASSWORD: '123'
   frontend:
     build:
       context: ./frontend
@@ -22,3 +27,12 @@ services:
       - 9877:9877
     volumes:
       - ./frontend:/frontend
+  mysql:
+    image: mysql:latest
+    container_name: devenv_mysql
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: '123'
